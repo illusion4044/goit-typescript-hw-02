@@ -1,5 +1,4 @@
 import ImageCard from '../ImageCard/ImageCard';
-import css from './ImageGallery.module.css';
 
 interface ImageGalleryProps {
   items: {
@@ -15,9 +14,9 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({ items, onImageClick }: ImageGalleryProps) {
   return (
-    <ul className={css.imageGallery}>
+    <ul>
       {items.map((item) => (
-        <li key={item.id} className={css.imageCard}>
+        <li key={item.id} >
           <ImageCard
             imageUrl={item.urls.small}
             altText={item.alt_description}

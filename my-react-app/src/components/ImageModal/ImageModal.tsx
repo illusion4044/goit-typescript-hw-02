@@ -1,5 +1,4 @@
 import Modal from 'react-modal';
-import css from './ImageModal.module.css';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -12,7 +11,6 @@ export default function ImageModal({ isOpen, imageUrl, altText, onRequestClose }
   return (
     <Modal
       isOpen={isOpen}
-      className={css.modalContent}
       onRequestClose={onRequestClose}
       contentLabel="Image Modal"
       style={{
