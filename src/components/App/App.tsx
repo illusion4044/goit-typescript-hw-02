@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
@@ -8,7 +8,7 @@ import ImageModal from '../ImageModal/ImageModal';
 import { Toaster } from 'react-hot-toast';
 
 
-interface Image {
+export interface Image {
   id: string;
   urls: {
     small: string;
@@ -29,7 +29,7 @@ export default function App() {
     const fetchImages = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
+        const response: AxiosResponse<{ results: Image[] }> = await axios.get(
           `https://api.unsplash.com/search/photos?query=${query}&page=${page}&client_id=YL7J0YTcDhe-HnK11LFWP3F7-jcGuyBx0-U9_ON2V3s`
         );
         setImages((prev) => [...prev, ...response.data.results]);
