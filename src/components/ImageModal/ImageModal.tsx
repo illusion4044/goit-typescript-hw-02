@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import css from './ImageModal.module.css';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -30,7 +31,7 @@ export default function ImageModal({ isOpen, imageUrl, altText, onRequestClose }
         },
       }}
     >
-      <img src={imageUrl} alt={altText} style={{ maxWidth: '100%', maxHeight: '100vh' }} />
+      <img src={imageUrl} alt={altText} className={css.modalContent} />
     </Modal>
   );
 }
